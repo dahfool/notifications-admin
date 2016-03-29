@@ -32,7 +32,7 @@ def add_service():
         invite_api_client.accept_invite(service_id, invitation.id)
         return redirect(url_for('main.service_dashboard', service_id=service_id))
 
-    form = AddServiceForm(services_dao.find_all_service_names)
+    form = AddServiceForm(services_dao.find_all_service_names_lower_case)
     heading = 'Which service do you want to set up notifications for?'
     if form.validate_on_submit():
         session['service_name'] = form.name.data

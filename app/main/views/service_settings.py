@@ -17,7 +17,7 @@ from app.main.dao.services_dao import (
     get_service_by_id,
     delete_service,
     update_service,
-    find_all_service_names
+    find_all_service_names_lower_case
 )
 
 from app.main import main
@@ -45,7 +45,7 @@ def service_settings(service_id):
 def service_name_change(service_id):
     service = get_service_by_id(service_id)['data']
 
-    form = ServiceNameForm(find_all_service_names)
+    form = ServiceNameForm(find_all_service_names_lower_case)
 
     if form.validate_on_submit():
         session['service_name_change'] = form.name.data

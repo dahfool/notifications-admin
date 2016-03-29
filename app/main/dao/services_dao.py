@@ -1,4 +1,4 @@
-from flask import url_for, current_app
+from flask import url_for
 from app import service_api_client
 from app.utils import BrowsableItem
 
@@ -67,9 +67,9 @@ def delete_service(id_):
     return service_api_client.delete_service(id_)
 
 
-def find_all_service_names(user_id=None):
+def find_all_service_names_lower_case(user_id=None):
     resp = service_api_client.get_services(user_id)
-    return [x['name'] for x in resp['data']]
+    return [x['name'].lower() for x in resp['data']]
 
 
 class ServicesBrowsableItem(BrowsableItem):
