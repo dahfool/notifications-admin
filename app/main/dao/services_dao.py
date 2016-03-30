@@ -10,7 +10,8 @@ def update_service(service):
         service['active'],
         service['limit'],
         service['restricted'],
-        service['users'])
+        service['users'],
+        service['email_from'])
 
 
 def get_service_by_id(id_):

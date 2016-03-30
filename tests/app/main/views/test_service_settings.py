@@ -1,4 +1,7 @@
 from flask import url_for
+
+import app
+from app.utils import email_safe
 from tests import validate_route_permission
 from bs4 import BeautifulSoup
 
@@ -107,31 +110,38 @@ def test_should_show_service_name_confirmation(app_,
 
 
 def test_should_redirect_after_service_name_confirmation(app_,
-                                                         api_user_active,
-                                                         mock_get_service,
+                                                         active_user_with_permissions,
+                                                         service_one,
+                                                         mocker,
                                                          mock_update_service,
-                                                         mock_get_user,
-                                                         mock_get_user_by_email,
-                                                         mock_login,
-                                                         mock_verify_password,
-                                                         mock_has_permissions):
+                                                         mock_verify_password):
+    service_data = {'data': service_one}
     with app_.test_request_context():
         with app_.test_client() as client:
-            client.login(api_user_active)
-            service_id = 123
+            mocker.patch('app.user_api_client.get_user', return_value=active_user_with_permissions)
+            mocker.patch('app.service_api_client.get_service', return_value=service_data)
+            mocker.patch('app.user_api_client.get_users_for_service', return_value=[active_user_with_permissions])
+            client.login(active_user_with_permissions)
             service_new_name = 'New Name'
             with client.session_transaction() as session:
                 session['service_name_change'] = service_new_name
+            service_id = service_one['id']
             response = client.post(url_for(
                 'main.service_name_change_confirm', service_id=service_id))
 
         assert response.status_code == 302
         settings_url = url_for(
             'main.service_settings', service_id=service_id, _external=True)
-        resp_data = response.get_data(as_text=True)
         assert settings_url == response.location
-        assert mock_get_service.called
-        assert mock_update_service.called
+        assert app.service_api_client.get_service.called
+        mock_update_service.assert_called_once_with(service_id,
+                                                    service_new_name,
+                                                    service_one['active'],
+                                                    service_one['limit'],
+                                                    service_one['restricted'],
+                                                    service_one['users'],
+                                                    email_safe(service_new_name))
+        assert mock_verify_password.called
 
 
 def test_should_raise_duplicate_name_handled(app_,

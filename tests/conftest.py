@@ -77,10 +77,11 @@ def mock_update_service(mocker):
                 active,
                 limit,
                 restricted,
-                users):
+                users,
+                email_from):
         service = service_json(
             service_id, service_name, users, limit=limit,
-            active=active, restricted=restricted)
+            active=active, restricted=restricted, email_from=email_from)
         return {'data': service}
 
     return mocker.patch(
@@ -94,7 +95,8 @@ def mock_update_service_raise_httperror_duplicate_name(mocker):
                 active,
                 limit,
                 restricted,
-                users):
+                users,
+                email_from):
         json_mock = Mock(return_value={'message': {'name': ["Duplicate service name '{}'".format(service_name)]}})
         resp_mock = Mock(status_code=400, json=json_mock)
         http_error = HTTPError(response=resp_mock, message="Default message")

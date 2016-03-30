@@ -21,7 +21,7 @@ from app.main.dao.services_dao import (
 )
 
 from app.main import main
-from app.utils import user_has_permissions
+from app.utils import user_has_permissions, email_safe
 from app.main.dao.users_dao import verify_password
 from app.main.forms import ConfirmPasswordForm, ServiceNameForm
 
@@ -71,6 +71,7 @@ def service_name_change_confirm(service_id):
 
     if form.validate_on_submit():
         service['name'] = session['service_name_change']
+        service['email_from'] = email_safe(session['service_name_change'])
         try:
             update_service(service)
         except HTTPError as e:
