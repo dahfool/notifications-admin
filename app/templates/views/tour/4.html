@@ -11,24 +11,29 @@
 
   {% call banner_wrapper(type='tour') %}
   <div class="grid-row">
+    <div class="column-whole">
+      <h2 class="heading-medium" style="font-weight:normal">Call your fields anything. There isn’t a predefined list.</h2>
+    </div>
     <div class="column-one-third">
-      <h2 class="heading-medium" style="font-weight:normal">Start with a template</h2>
       <div style="
         background: #fff;
         border: 2px solid #123;
         color: #000;
         padding: 10px;
+        line-height: 1.6;
       ">
-        Thanks for sending your <span class="placeholder">document</span>.
-        We’ve started processing your application. You should hear back from us
-        within two weeks.
+        <span class="placeholder">name</span>, thanks for sending your
+        <span class="placeholder">document</span>.
+        We’re processing your application. You should hear back from us
+        on <span class="placeholder">ETA</span>.
       </div>
-      <a href='{{ url_for('.tour', page=next_page) }}'>
-        Next
-      </a>
+      <p>
+        <a href='{{ url_for('.tour', page=next_page) }}'>
+          Next
+        </a>
+      </p>
     </div>
-    <div class="column-one-third">
-      <h2 class="heading-medium" style="font-weight:normal">Add recipients</h2>
+    <div class="column-two-thirds">
       <table style="
         background: #fff;
         border-left: 5px solid #fff;
@@ -38,22 +43,30 @@
       ">
         <thead>
           <tr>
-            <th>phone number</th>
-            <th>document</th>
+            <th class="table-field-heading">phone number</th>
+            <th class="table-field-heading"><span class="placeholder">name</span></th>
+            <th class="table-field-heading"><span class="placeholder">document</span></th>
+            <th class="table-field-heading"><span class="placeholder">ETA</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>07900900321</td>
+            <td>Joshua Manning</td>
             <td>passport</td>
+            <td>17 May</td>
           </tr>
           <tr>
             <td>07900900321</td>
+            <td>Amala Maroun</td>
             <td>proof of address</td>
+            <td>18 May</td>
           </tr>
           <tr>
             <td>07900900321</td>
+            <td>Roman Symanski</td>
             <td>driving license</td>
+            <td>18 May</td>
           </tr>
         </tbody>
       </table>

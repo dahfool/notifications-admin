@@ -12,14 +12,14 @@
   {% call banner_wrapper(type='tour') %}
   <div class="grid-row">
     <div class="column-one-third">
-      <h2 class="heading-medium">Start with a template</h2>
+      <h2 class="heading-medium" style="font-weight:normal">Start with a template</h2>
       <div style="
         background: #fff;
         border: 2px solid #123;
         color: #000;
         padding: 10px;
       ">
-        Thanks for sending your <span class="placeholder">((document))</span>.
+        Thanks for sending your <span class="placeholder">document</span>.
         We’ve started processing your application. You should hear back from us
         within two weeks.
       </div>
@@ -28,17 +28,18 @@
       </a>
     </div>
     <div class="column-one-third">
-      <h2 class="heading-medium">Add your recipients</h2>
+      <h2 class="heading-medium" style="font-weight:normal">Add recipients</h2>
       <table style="
         background: #fff;
-        border: 2px solid #123;
+        border-left: 5px solid #fff;
+        border-right: 5px solid #fff;
         color: #000;
         padding: 10px;
       ">
         <thead>
-          <tr style="background: #ddd;">
-            <td>phone number</td>
-            <td>document</td>
+          <tr>
+            <th>phone number</th>
+            <th><span class="placeholder">document</span></th>
           </tr>
         </thead>
         <tbody>
@@ -59,7 +60,7 @@
     </div>
     <div class="column-one-third">
       <div style="">
-        <h2 class="heading-medium">Send your messages</h2>
+        <h2 class="heading-medium" style="font-weight:normal">We send your messages</h2>
         <div style="
           background: #000;
           border-radius: 10px;
@@ -71,7 +72,8 @@
             border-radius: 3px;
           ">
             <div style="height: 30px; background: #ddd;"></div>
-            <div style="padding: 5px; margin: 10px;background: #ddd; border-radius: 3px;">
+            <p style="margin: 10px 0 5px 7px; color: #6f777b;font-size: 16px;">To: 07900900321</p>
+            <div style="padding: 10px; margin: 10px;background: #ddd; border-radius: 5px;">
               Thanks for sending your passport.
               We’ve started processing your application. You should hear back from us
               within two weeks.

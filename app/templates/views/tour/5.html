@@ -1,0 +1,32 @@
+{% extends "withoutnav_template.html" %}
+{% from "components/textbox.html" import textbox %}
+{% from "components/page-footer.html" import page_footer %}
+{% from "components/banner.html" import banner_wrapper %}
+
+{% block page_title %}
+  {{heading}} – GOV.UK Notify
+{% endblock %}
+
+{% block maincolumn_content %}
+
+  {% call banner_wrapper(type='tour') %}
+  <div class="grid-row">
+    <div class="column-whole">
+      <h2 class="heading-medium" style="font-weight: normal">You’re ready to get started</h2>
+      <div class="grid-row">
+        <div class="column-half">
+          <a href='{{ url_for(".add_service_template", service_id=current_service.id, template_type="email") }}'>
+            Set up an email template
+          </a>
+        </div>
+        <div class="column-half">
+          <a href='{{ url_for(".add_service_template", service_id=current_service.id, template_type="sms") }}'>
+            Set up a text message template
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endcall %}
+
+{% endblock %}
