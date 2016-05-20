@@ -12,17 +12,18 @@
   {% call banner_wrapper(type='tour') %}
   <div class="grid-row">
     <div class="column-whole">
-      <h2 class="heading-medium" style="font-weight: normal">You’re ready to get started</h2>
+      <h2 class="heading-medium" style="font-weight: normal">Now try it yourself</h2>
       <div class="grid-row">
         <div class="column-half">
           <a href='{{ url_for(".add_service_template", service_id=current_service.id, template_type="email") }}'>
             Set up an email template
           </a>
-        </div>
-        <div class="column-half">
           <a href='{{ url_for(".add_service_template", service_id=current_service.id, template_type="sms") }}'>
             Set up a text message template
           </a>
+        </div>
+        <div class="column-half">
+
         </div>
       </div>
     </div>

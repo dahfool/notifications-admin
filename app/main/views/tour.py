@@ -1,3 +1,4 @@
+import datetime
 from flask import render_template
 
 from app.main import main
@@ -8,5 +9,6 @@ def tour(page):
     return render_template(
         'views/tour/{}.html'.format(page),
         current_page=page,
-        next_page=(page + 1)
+        next_page=(page + 1),
+        now=str(datetime.datetime.utcnow())
     )
