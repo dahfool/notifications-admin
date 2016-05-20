@@ -4,8 +4,7 @@ from app.main import main
 
 
 headings = [
-    'Trial mode',
-    'Start with templates',
+    'Start with a template',
     'Add recipients',
     'Send your messages',
 ]

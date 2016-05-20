@@ -10,28 +10,54 @@
 {% block maincolumn_content %}
 
   {% call banner_wrapper(type='tour') %}
-	<h2 class="heading-large">{{ heading }}</h2>
-	<p>
-		Set up a template like this:
-	</p>
-	<p>
-	    <picture>
-		  <source
-			  type="image/svg+xml"
-			  srcset="/static/images/tour/{{ current_page }}.svg"
-			  alt="A template for a text message with placeholders for the recipients name, document and date"
-			  width="554" height="97"
-		  >
-		  <img
-			src="/static/images/tour/{{ current_page }}.png"
-			width="554" height="97"
-			alt="A screenshot of a spreadsheet containing data about three people"
-		  >
-		</picture>
-	</p>
-    <a href='{{ url_for('.tour', page=next_page) }}'>
-      Next
-    </a>
+  <div class="grid-row">
+    <div class="column-one-third">
+      <h2 class="heading-medium">Start with a template</h2>
+      <div style="
+        background: #fff;
+        border: 2px solid #123;
+        color: #000;
+        padding: 10px;
+      ">
+        Thanks for sending your <span class="placeholder">((document))</span>.
+        We’ve started processing your application. You should hear back from us
+        within two weeks.
+      </div>
+      <a href='{{ url_for('.tour', page=next_page) }}'>
+        Next
+      </a>
+    </div>
+    <div class="column-one-third">
+      <h2 class="heading-medium">Add your recipients</h2>
+      <table style="
+        background: #fff;
+        border: 2px solid #123;
+        color: #000;
+        padding: 10px;
+      ">
+        <thead>
+          <tr style="background: #ddd;">
+            <td>phone number</td>
+            <td>document</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>07900900321</td>
+            <td>passport</td>
+          </tr>
+          <tr>
+            <td>07900900321</td>
+            <td>proof of address</td>
+          </tr>
+          <tr>
+            <td>07900900321</td>
+            <td>driving license</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   {% endcall %}
 
 {% endblock %}
