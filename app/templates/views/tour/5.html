@@ -15,12 +15,18 @@
       <h2 class="heading-medium" style="font-weight: normal">Now try it yourself</h2>
       <div class="grid-row">
         <div class="column-half">
-          <a href='{{ url_for(".add_service_template", service_id=current_service.id, template_type="email") }}'>
-            Set up an email template
-          </a>
-          <a href='{{ url_for(".add_service_template", service_id=current_service.id, template_type="sms") }}'>
-            Set up a text message template
-          </a>
+          {% if current_service %}
+            <a href='{{ url_for(".add_service_template", service_id=current_service.id, template_type="email") }}'>
+              Set up an email template
+            </a>
+            <a href='{{ url_for(".add_service_template", service_id=current_service.id, template_type="sms") }}'>
+              Set up a text message template
+            </a>
+          {% else %}
+            <a href='{{ url_for(".register") }}'>
+              Set up an account
+            </a>
+          {% endif %}
         </div>
         <div class="column-half">
 
