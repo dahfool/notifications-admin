@@ -45,10 +45,7 @@ def add_service():
         session['service_id'] = service_id
 
         services = service_api_client.get_services({'user_id': session['user_id']}).get('data', [])
-        if (len(services) > 1):
-            return redirect(url_for('main.service_dashboard', service_id=service_id))
-        else:
-            return redirect(url_for('main.tour', page=1))
+        return redirect(url_for('main.tour', page=1))
     else:
         return render_template(
             'views/add-service.html',

@@ -26,17 +26,9 @@ from app import user_api_client
 
 @main.route('/register', methods=['GET', 'POST'])
 def register():
-    if current_user and current_user.is_authenticated:
-        return redirect(url_for('main.choose_service'))
-
     form = RegisterUserForm()
     if form.validate_on_submit():
-        registered = _do_registration(form, send_sms=False)
-        if registered:
-            return redirect(url_for('main.registration_continue'))
-        else:
-            flash('There was an error registering your account')
-            return render_template('views/register.html', form=form), 400
+        return redirect(url_for('main.add_service'))
 
     return render_template('views/register.html', form=form)
 
