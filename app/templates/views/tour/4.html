@@ -10,10 +10,11 @@
 {% block maincolumn_content %}
 
   {% call banner_wrapper(type='tour') %}
+  <h2 class="heading-medium">The fields in your template need to match the column headers</h2>
+  <a href='{{ url_for('.tour', page=next_page) }}'>
+    Next
+  </a>
   <div class="grid-row">
-    <div class="column-whole">
-      <h2 class="heading-medium" style="font-weight:normal">Call your fields anything. There isn’t a predefined list.</h2>
-    </div>
     <div class="column-one-third">
       <div style="
         background: #fff;
@@ -22,16 +23,11 @@
         padding: 10px;
         line-height: 1.6;
       ">
-        <span class="placeholder">name</span>, thanks for sending your
-        <span class="placeholder">document</span>.
+        <span class="placeholder">((first name))</span>, thanks for posting your
+        <span class="placeholder">((document))</span>.
         We’re processing your application. You should hear back from us
-        on <span class="placeholder">estimate</span>
+        on <span class="placeholder">((date))</span>
       </div>
-      <p>
-        <a href='{{ url_for('.tour', page=next_page) }}'>
-          Next
-        </a>
-      </p>
     </div>
     <div class="column-two-thirds">
       <table style="
@@ -42,29 +38,29 @@
         padding: 10px;
       ">
         <thead>
-          <tr>
+          <tr style="background: #ddd;">
             <th class="table-field-heading">phone number</th>
-            <th class="table-field-heading"><span class="placeholder">name</span></th>
-            <th class="table-field-heading"><span class="placeholder">document</span></th>
-            <th class="table-field-heading"><span class="placeholder">estimate</span></th>
+            <th class="table-field-heading">first name</th>
+            <th class="table-field-heading">document</th>
+            <th class="table-field-heading">date</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>07900900321</td>
-            <td>Joshua Manning</td>
+            <td>07900911111</td>
+            <td>Joshua</td>
             <td>passport</td>
             <td>17 May</td>
           </tr>
           <tr>
-            <td>07900900456</td>
-            <td>Amala Maroun</td>
+            <td>07900922222</td>
+            <td>Amala</td>
             <td>proof of address</td>
             <td>18 May</td>
           </tr>
           <tr>
-            <td>07900900987</td>
-            <td>Roman Symanski</td>
+            <td>07900933333</td>
+            <td>Roman</td>
             <td>driving license</td>
             <td>18 May</td>
           </tr>

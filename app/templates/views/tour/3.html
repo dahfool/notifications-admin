@@ -10,25 +10,27 @@
 {% block maincolumn_content %}
 
   {% call banner_wrapper(type='tour') %}
+  <h2 class="heading-medium">
+    The template pulls data from a spreadsheet that you upload
+  </h2>
+  <a href='{{ url_for('.tour', page=next_page) }}'>
+    Next
+  </a>
   <div class="grid-row">
     <div class="column-one-third">
-      <h2 class="heading-medium" style="font-weight:normal">Start with a template</h2>
       <div style="
         background: #fff;
         border: 2px solid #123;
         color: #000;
+        line-height: 1.6;
         padding: 10px;
       ">
-        Thanks for sending your <span class="placeholder">document</span>.
-        We’ve started processing your application. You should hear back from us
+        <span class="placeholder">((first name))</span>,
+        we’ve started processing your application. You should hear back from us
         within two weeks.
       </div>
-      <a href='{{ url_for('.tour', page=next_page) }}'>
-        Next
-      </a>
     </div>
-    <div class="column-one-third">
-      <h2 class="heading-medium" style="font-weight:normal">Add recipients</h2>
+    <div class="column-two-thirds">
       <table style="
         background: #fff;
         border-left: 5px solid #fff;
@@ -37,63 +39,27 @@
         padding: 10px;
       ">
         <thead>
-          <tr>
+          <tr style="background: #ddd;">
             <th>phone number</th>
-            <th><span class="placeholder">document</span></th>
+            <th>first name</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>07900900321</td>
-            <td>passport</td>
+            <td>07900911111</td>
+            <td>Joshua</td>
           </tr>
           <tr>
-            <td>07900900456</td>
-            <td>proof of address</td>
+            <td>07900922222</td>
+            <td>Amala</td>
           </tr>
           <tr>
-            <td>07900900987</td>
-            <td>driving license</td>
+            <td>07900933333</td>
+            <td>Roman</td>
           </tr>
         </tbody>
       </table>
-    </div>
-    <div class="column-one-third">
-      <div style="">
-        <h2 class="heading-medium" style="font-weight:normal">We send your messages</h2>
-        <div style="
-          background: #000;
-          border-radius: 15px;
-          padding: 15px;
-        ">
-          <div style="
-            margin: 5px auto 20px;
-            border-radius: 5px;
-            width: 30px;
-            height: 7px;
-            background: rgba(255, 255, 255, 0.2);
-          "></div>
-          <div style="
-            background: #fff; color: #000;
-            min-height: 377px;
-            border-radius: 1px;
-          ">
-            <p style="margin: 0 0 5px 7px; padding-top: 10px; color: #6f777b; font-size: 16px;">To: 07900900321</p>
-            <div style="padding: 10px; margin: 10px;background: #ddd; border-radius: 5px;">
-              Thanks for sending your passport.
-              We’ve started processing your application. You should hear back from us
-              within two weeks.
-            </div>
-          </div>
-          <div style="
-            margin: 10px auto 0;
-            border-radius: 25%;
-            width: 30px;
-            height: 30px;
-            background: rgba(255, 255, 255, 0.2);
-          "></div>
-        </div>
-      </div>
+      <p>Developers, you can add this data using an API</p>
     </div>
   </div>
   {% endcall %}
