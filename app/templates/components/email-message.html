@@ -27,10 +27,6 @@
     {% if updated_at %}
       <p class="email-message-updated-at">Last updated on {{ updated_at|format_date_normal }} <a href="{{ versions_url }}">see earlier versions</a></p>
     {% endif %}
-  {% else %}
-    {% if created_at %}
-      <p class="email-message-updated-at">Created on {{ created_at|format_date_normal }}</p>
-    {% endif %}
   {% endif %}
   <div class="email-message">
     {% if from_name or subject %}
