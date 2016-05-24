@@ -10,10 +10,11 @@
 {% block maincolumn_content %}
 
   {% call banner_wrapper(type='tour') %}
+  <img src="/static/images/arrows.png" style="position: absolute; top:0; left:0;width: 100%; pointer-events:none;"/>
   <h2 class="heading-medium">
     The template pulls data from a spreadsheet that you upload
   </h2>
-  <a href='{{ url_for('.tour', page=next_page) }}'>
+  <a href='{{ url_for('.tour', page=4) }}'>
     Next
   </a>
   <div class="grid-row">
@@ -27,7 +28,7 @@
       ">
         <span class="placeholder">((first name))</span>,
         we’ve started processing your application. You should hear back from us
-        within two weeks.
+        by <span class="placeholder">((date))</span>.
       </div>
     </div>
     <div class="column-two-thirds">
@@ -42,20 +43,24 @@
           <tr style="background: #ddd;">
             <th>phone number</th>
             <th>first name</th>
+            <th>date</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>07900911111</td>
             <td>Joshua</td>
+            <td>25 May</td>
           </tr>
           <tr>
             <td>07900922222</td>
             <td>Amala</td>
+            <td>19 May</td>
           </tr>
           <tr>
             <td>07900933333</td>
             <td>Roman</td>
+            <td>24 May</td>
           </tr>
         </tbody>
       </table>
